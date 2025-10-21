@@ -236,6 +236,11 @@ class MedicalExtractor(object):
 
 if __name__ == '__main__':
     path = "data_source/faers_ascii_2023Q1/ASCII/"
-    extractor = MedicalExtractor()
+    # 替换为你的Neo4j实际参数
+    extractor = MedicalExtractor(
+        uri="bolt://localhost:7687",
+        user="neo4j",
+        password="rainshineking274"
+    )
     extractor.extract_triples(path)
 
