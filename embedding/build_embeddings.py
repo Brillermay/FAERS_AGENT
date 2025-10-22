@@ -100,64 +100,83 @@ class EmbeddingGeneratorLangChain:
 
         print(f"{node_label} embeddings 生成并存储完成")
 
+    # def generate_relationship_embeddings(self, rel_type, node_labels, text_fields_a, text_fields_b, skip_existing=True):
+    #     """
+    #     批量生成关系 embeddings，并覆盖写回（按关系 id）。
+    #     注意：为确保统一重算，本函数忽略 skip_existing，强制覆盖 r.embedding。
+    #     为避免拉取整节点（包含大 embedding），仅返回所需标量字段。
+    #     """
+    #     # 仅选择必要字段，避免把整节点（含 embedding）拉回
+    #     a_fields_select = ", ".join([f"a.{f} AS a_{f}" for f in text_fields_a]) if text_fields_a else ""
+    #     b_fields_select = ", ".join([f"b.{f} AS b_{f}" for f in text_fields_b]) if text_fields_b else ""
+    #     selects = ", ".join(part for part in ["id(r) AS rid", a_fields_select, b_fields_select] if part)
+
+    #     query = f"MATCH (a:{node_labels[0]})-[r:{rel_type}]->(b:{node_labels[1]}) RETURN {selects}"
+    #     rows = self.graph.run(query).data()
+
+    #     items = []
+    #     for row in rows:
+    #         rid = int(row["rid"])
+    #         a_parts = [str(row.get(f"a_{f}", "")) for f in text_fields_a]
+    #         b_parts = [str(row.get(f"b_{f}", "")) for f in text_fields_b]
+    #         text_a = " ".join([p for p in a_parts if p])
+    #         text_b = " ".join([p for p in b_parts if p])
+    #         text = f"{rel_type} {text_a} {text_b}".strip()
+    #         if text:
+    #             items.append((rid, text))
+
+    #     if not items:
+    #         print(f"{rel_type} 无需生成 embedding")
+    #         return
+
+    #     batches = list(self._chunks(items, self.batch_size))
+    #     for batch in tqdm(batches, desc=f"生成 {rel_type} embeddings（覆盖）", unit="batch"):
+    #         rids = [x[0] for x in batch]
+    #         texts = [x[1] for x in batch]
+    #         try:
+    #             embeddings = self._embed_with_retry(texts)
+    #         except Exception as e:
+    #             print(f"[WARN] 批量关系 embed 失败，逐条回退: {e}")
+    #             embeddings = []
+    #             for t in texts:
+    #                 try:
+    #                     embeddings.append(self.embeddings.embed_query(t))
+    #                 except Exception as e2:
+    #                     print(f"[WARN] 单条关系 embed 失败，跳过: {e2}")
+    #                     embeddings.append(None)
+
+    #         pairs = [{"rel_id": rid, "embedding": emb} for rid, emb in zip(rids, embeddings) if emb is not None]
+    #         if pairs:
+    #             update_query = """
+    #             UNWIND $pairs AS pair
+    #             MATCH ()-[r]-() WHERE id(r) = pair.rel_id
+    #             SET r.embedding = pair.embedding
+    #             """
+    #             self.graph.run(update_query, pairs=pairs)
+
+    #     print(f"{rel_type} 关系向量已全部覆盖重算完成")
+
     def generate_relationship_embeddings(self, rel_type, node_labels, text_fields_a, text_fields_b, skip_existing=True):
         """
-        批量生成关系 embeddings，并批量写回（按关系 id）。
+        覆盖式关系向量化：不调用外部 API，
+        直接在 Neo4j 内用两端节点向量的均值写回 r.embedding（忽略 skip_existing）。
+        仅当两端节点均存在 embedding 且维度一致时更新。
         """
-        query = f"MATCH (a:{node_labels[0]})-[r:{rel_type}]->(b:{node_labels[1]}) RETURN id(r) AS rid, a, b, r"
-        rows = self.graph.run(query).data()
-
-        items = []
-        for row in rows:
-            rid = row["rid"]
-            r = row["r"]
-            if skip_existing and r.get("embedding"):
-                continue
-            a = row["a"]
-            b = row["b"]
-            text_a = " ".join([str(a.get(f, "")) for f in text_fields_a])
-            text_b = " ".join([str(b.get(f, "")) for f in text_fields_b])
-            text = f"{rel_type} {text_a} {text_b}".strip()
-            if text:
-                items.append((int(rid), text))
-
-        if not items:
-            print(f"{rel_type} 无需生成 embedding")
-            return
-
-        batches = list(self._chunks(items, self.batch_size))
-        for batch in tqdm(batches, desc=f"生成 {rel_type} embeddings", unit="batch"):
-            rids = [x[0] for x in batch]
-            texts = [x[1] for x in batch]
-            embeddings = None
-            try:
-                embeddings = self._embed_with_retry(texts)
-            except Exception as e:
-                print(f"[WARN] 批量关系 embed 失败，逐条回退: {e}")
-                embeddings = []
-                for t in texts:
-                    try:
-                        emb = self.embeddings.embed_query(t)
-                    except Exception as e2:
-                        print(f"[WARN] 单条关系 embed 失败，跳过: {e2}")
-                        emb = None
-                    embeddings.append(emb)
-
-            pairs = []
-            for rid, emb in zip(rids, embeddings):
-                if emb is None:
-                    continue
-                pairs.append({"rel_id": rid, "embedding": emb})
-
-            if pairs:
-                update_query = """
-                UNWIND $pairs AS pair
-                MATCH ()-[r]-() WHERE id(r) = pair.rel_id
-                SET r.embedding = pair.embedding
-                """
-                self.graph.run(update_query, pairs=pairs)
-
-        print(f"{rel_type} embeddings 生成并存储完成")
+        label_a, label_b = node_labels
+        query = f"""
+        MATCH (a:{label_a})-[r:{rel_type}]->(b:{label_b})
+        WHERE a.embedding IS NOT NULL AND b.embedding IS NOT NULL
+        WITH r, a, b, size(a.embedding) AS lenA, size(b.embedding) AS lenB
+        WHERE lenA = lenB AND lenA > 0
+        SET r.embedding = [i IN range(0, lenA - 1) | (a.embedding[i] + b.embedding[i]) / 2.0]
+        RETURN count(r) AS updated
+        """
+        try:
+            res = self.graph.run(query).data()
+            updated = res[0]["updated"] if res else 0
+            print(f"{rel_type} 关系向量已全部覆盖重算完成（更新 {updated} 条）")
+        except Exception as e:
+            print(f"[ERROR] 重算 {rel_type} 关系向量失败: {e}")
 
     def generate_subgraph_embedding(self, center_node_id, node_label="Patient", depth=1):
         """
