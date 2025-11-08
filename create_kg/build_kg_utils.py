@@ -49,7 +49,7 @@ class MedicalExtractor(object):
             for line in tqdm(f.readlines(), ncols=80, desc="读取患者数据"):
                 fields = line.strip().split('$')
                 # 检查所有必需字段是否为空
-                required_indices = [0, 1, 4, 13, 16, 18, 22]
+                required_indices = [0, 1, 4, 13, 16, 18, 24]
                 if any(not fields[i].strip() for i in required_indices):
                     self.invalid_primaryids.add(fields[0])
                     continue
@@ -62,7 +62,7 @@ class MedicalExtractor(object):
                     'age_grp': fields[15],
                     'sex': fields[16],
                     'wt': fields[18],
-                    'occr_country': fields[22],
+                    'occr_country': fields[24],
                 }
                 self.valid_primaryids.add(fields[0])
                 # 将患者数据存入patients列表
@@ -286,11 +286,6 @@ class MedicalExtractor(object):
 
 if __name__ == '__main__':
     path = "data_source/faers_ascii_2023Q2/ASCII/"
-    # 替换为你的Neo4j实际参数
-    extractor = MedicalExtractor(
-        uri="bolt://localhost:7687",
-        user="neo4j",
-        password="rainshineking274"
-    )
+    extractor = MedicalExtractor()
     extractor.extract_triples(path)
 
