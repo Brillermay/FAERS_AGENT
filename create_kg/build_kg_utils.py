@@ -16,7 +16,7 @@ class MedicalExtractor(object):
         # 优先使用传入参数，其次使用环境变量，最后使用默认 Bolt 地址
         uri = uri or os.getenv("NEO4J_URI", "bolt://localhost:7687")
         user = user or os.getenv("NEO4J_USER", "neo4j")
-        password = password or os.getenv("NEO4J_PASSWORD", "12345678")
+        password = password or os.getenv("NEO4J_PASSWORD", "rainshineking274")
 
         try:
             self.graph = Graph(uri, auth=(user, password))
@@ -45,7 +45,7 @@ class MedicalExtractor(object):
         print("从txt文件中转换抽取三元组")
 
         # 修改读取 demo.txt 文件的部分
-        with open(data_path + 'DEMO23Q2.txt', 'r', encoding='utf8') as f:
+        with open(data_path + 'DEMO23Q1.txt', 'r', encoding='utf8') as f:
             for line in tqdm(f.readlines(), ncols=80, desc="读取患者数据"):
                 fields = line.strip().split('$')
                 # 检查所有必需字段是否为空
@@ -69,7 +69,7 @@ class MedicalExtractor(object):
                 self.patients.append(patient_data)
 
         # 修改读取 drug.txt 文件的部分
-        with open(data_path + 'DRUG23Q2.txt', 'r', encoding='utf8') as f:
+        with open(data_path + 'DRUG23Q1.txt', 'r', encoding='utf8') as f:
             for line in tqdm(f.readlines(), ncols=80, desc="读取药物数据"):
                 fields = line.strip().split('$')
                 # 检查 primaryid 是否已经被标记为无效
@@ -98,7 +98,7 @@ class MedicalExtractor(object):
                 self.drugs.append(drug_data)
 
         # 修改读取 reac.txt 文件的部分
-        with open(data_path + 'REAC23Q2.txt', 'r', encoding='utf8') as f:
+        with open(data_path + 'REAC23Q1.txt', 'r', encoding='utf8') as f:
             for line in tqdm(f.readlines(), ncols=80, desc="读取不良反应数据"):
                 fields = line.strip().split('$')
                 if fields[0] in self.invalid_primaryids:
@@ -113,7 +113,7 @@ class MedicalExtractor(object):
                 self.reactions.append(reac_data)
 
         # 修改读取 outc.txt 文件的部分
-        with open(data_path + 'OUTC23Q2.txt', 'r', encoding='utf8') as f:
+        with open(data_path + 'OUTC23Q1.txt', 'r', encoding='utf8') as f:
             for line in tqdm(f.readlines(), ncols=80, desc="读取患者结果数据"):
                 fields = line.strip().split('$')
                 if fields[0] in self.invalid_primaryids:
@@ -128,7 +128,7 @@ class MedicalExtractor(object):
                 self.outcomes.append(outc_data)
 
         # 修改读取 indi.txt 文件的部分
-        with open(data_path + 'INDI23Q2.txt', 'r', encoding='utf8') as f:
+        with open(data_path + 'INDI23Q1.txt', 'r', encoding='utf8') as f:
             for line in tqdm(f.readlines(), ncols=80, desc="读取适应症数据"):
                 fields = line.strip().split('$')
                 if fields[0] in self.invalid_primaryids:
@@ -285,7 +285,7 @@ class MedicalExtractor(object):
 
 
 if __name__ == '__main__':
-    path = "data_source/faers_ascii_2023Q2/ASCII/"
+    path = "data_source/faers_ascii_2023Q1/ASCII/"
     extractor = MedicalExtractor()
     extractor.extract_triples(path)
 
