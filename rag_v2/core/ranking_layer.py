@@ -9,16 +9,20 @@ import os
 from typing import Dict, Any, List
 import numpy as np
 
-from rag_v2.input_layer import parse_input
-from rag_v2.initial_search_layer import initial_search
-from rag_v2.relation_aggregate_layer import aggregate_relations
+from rag_v2.core.input_layer import parse_input
+from rag_v2.core.initial_search_layer import initial_search
+from rag_v2.core.relation_aggregate_layer import aggregate_relations
 
 ALPHA = float(os.getenv("RANK_ALPHA", "0.6"))  # 语义权重
 TOPK_FALLBACK = int(os.getenv("RANK_TOPK_LIMIT", "50"))
 DISPARITY_THRESHOLD = float(os.getenv("RANK_FREQ_DISPARITY_THRESHOLD", "5"))  # 频次差异阈值
 
 def _dot(a: List[float], b: List[float]) -> float:
+    # 原来只检查空，现在加上维度检查，避免 1024 vs 768 这种情况直接报错
     if not a or not b:
+        return 0.0
+    if len(a) != len(b):
+        # 维度不一致的旧向量，直接忽略（相似度视为 0）
         return 0.0
     return float(np.dot(np.asarray(a, dtype=np.float32), np.asarray(b, dtype=np.float32)))
 

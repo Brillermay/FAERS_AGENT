@@ -3,8 +3,8 @@
 import json
 from typing import Dict, Any, List, Set
 from py2neo import Graph
-from rag_v2.initial_search_layer import initial_search
-from rag_v2.input_layer import parse_input
+from rag_v2.core.initial_search_layer import initial_search
+from rag_v2.core.input_layer import parse_input
 
 graph = Graph("bolt://localhost:7687", auth=("neo4j", "rainshineking274"))
 

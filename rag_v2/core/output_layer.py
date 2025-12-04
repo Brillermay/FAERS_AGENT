@@ -1,4 +1,4 @@
-"""
+r"""
 第 5 层：答案生成层
 
 功能：
@@ -24,10 +24,10 @@ import requests
 from io import StringIO
 from typing import Dict, Any, List, Tuple
 
-from rag_v2.input_layer import parse_input
-from rag_v2.initial_search_layer import initial_search
-from rag_v2.relation_aggregate_layer import aggregate_relations
-from rag_v2.ranking_layer import rank_expansions
+from rag_v2.core.input_layer import parse_input
+from rag_v2.core.initial_search_layer import initial_search
+from rag_v2.core.relation_aggregate_layer import aggregate_relations
+from rag_v2.core.ranking_layer import rank_expansions
 
 # ============ 配置 ============
 USE_LLM = True
@@ -180,23 +180,59 @@ def _llm_refine(question: str,
             lists_text.append(item)
     context = "\n".join(lists_text)
 
-    prompt = (
-        "请用简体中文回答下面的问题，并基于给定要点进行归纳：\n"
-        "要求：\n"
-        "1. 不编造或扩展未提供的信息；\n"
-        "2. 合并相近概念，不机械逐条照搬；\n"
-        "3. 药物名可保留英文，若常见可加中文；\n"
-        "4. 使用分点或分段，简洁专业；\n"
-        "5. 不要原样复制“原始要点”列表；\n"
-        "6. 如果要点很杂，可按类别归组。\n\n"
-        f"用户问题：{question}\n\n原始要点：\n{context}\n\n请输出优化后的中文回答："
-    )
+    prompt = f"""请用简体中文回答下面的问题，并基于给定要点进行归纳：
+要求：
+1. 不编造或扩展未提供的信息；
+2. 合并相近概念，不机械逐条照搬；
+3. 药物名可保留英文，若常见可加中文；
+4. 使用分点或分段，简洁专业；
+5. 不要原样复制"原始要点"列表；
+6. 如果要点很杂，可按类别归组。
+7. **重要：只输出回答内容，不要输出任何格式标记、分隔线或"最终回答"等文字。**
+
+用户问题：{question}
+
+原始要点：
+{context}
+
+请直接输出优化后的中文回答："""
 
     messages = [
-        {"role": "system", "content": "你是医学药物安全知识图谱助手，回答需准确、凝练。"},
+        {
+            "role": "system",
+            "content": "你是医学药物安全知识图谱助手，回答需准确、凝练。只输出回答内容本身，不要输出任何格式标记、分隔线或\"最终回答\"等文字。直接给出答案即可。"
+        },
         {"role": "user", "content": prompt}
     ]
-    return _ollama_chat(LLM_MODEL, messages)
+    text, ok, err = _ollama_chat(LLM_MODEL, messages)
+    
+    # 清理输出：移除可能出现的分隔线或格式标记
+    if ok and text:
+        text = text.strip()
+        # 移除包含分隔线或格式标记的行
+        lines = text.split('\n')
+        cleaned_lines = []
+        for line in lines:
+            line_stripped = line.strip()
+            # 跳过纯分隔线（全等号）
+            if line_stripped and all(c == '=' for c in line_stripped):
+                continue
+            # 跳过包含"最终回答"的行
+            if '最终回答' in line_stripped:
+                continue
+            # 跳过包含多个等号的分隔线标记
+            if line_stripped.count('=') >= 3:
+                continue
+            cleaned_lines.append(line)
+        text = '\n'.join(cleaned_lines).strip()
+        
+        # 移除开头和结尾的额外空行
+        while text.startswith('\n'):
+            text = text[1:]
+        while text.endswith('\n'):
+            text = text[:-1]
+    
+    return text, ok, err
 
 # ============ 核心：答案生成 ============
 
@@ -290,3 +326,13 @@ if __name__ == "__main__":
     for q in tests:
         print("\n问题：", q)
         answer_pipeline(q)
+
+
+
+
+
+
+
+
+
+

@@ -4,32 +4,8 @@ import re
 from typing import Dict, List, Any
 from openai import OpenAI
 
-# 新增：本地 Ollama 向量函数（代替原错误 import）
-import os
-import requests
-import numpy as np
-
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
-OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "nomic-embed-text")
-OLLAMA_TIMEOUT = float(os.getenv("OLLAMA_TIMEOUT", "120"))
-
-def _l2_normalize(vec):
-    arr = np.asarray(vec, dtype=np.float32)
-    n = float(np.linalg.norm(arr))
-    if n == 0.0:
-        return arr.astype(np.float32).tolist()
-    return (arr / n).astype(np.float32).tolist()
-
-def embed_query(text: str) -> List[float]:
-    url = f"{OLLAMA_BASE_URL}/api/embeddings"
-    payload = {"model": OLLAMA_MODEL, "prompt": text or ""}
-    r = requests.post(url, json=payload, timeout=OLLAMA_TIMEOUT)
-    r.raise_for_status()
-    data = r.json()
-    vec = data.get("embedding")
-    if not isinstance(vec, list):
-        raise RuntimeError(f"Ollama 返回格式异常: {data}")
-    return _l2_normalize(vec)
+# 使用统一的 embedding 工具模块（已移动到 core 子包）
+from rag_v2.core.embedding_utils import embed_text, get_current_model_name
 
 # ---------- OpenAI 配置 ----------
 client = OpenAI(
@@ -126,8 +102,9 @@ def parse_input(question: str) -> Dict[str, Any]:
         intents = ["Drug", "Reaction", "Indication", "Outcome"]
 
     try:
-        query_vector = embed_query(question)
-    except Exception:
+        query_vector = embed_text(question)  # 使用统一接口
+    except Exception as e:
+        print(f"[warn] 问题向量化失败: {e}")
         query_vector = None
 
     result: Dict[str, Any] = {
@@ -139,12 +116,12 @@ def parse_input(question: str) -> Dict[str, Any]:
         "meta": {
             "raw_llm_output": raw,
             "parsed_ok": bool(seeds or intents),
-            "embedding_model": OLLAMA_MODEL,
+            "embedding_model": get_current_model_name(),
             "query_vector_dim": len(query_vector) if query_vector else None,
         },
     }
 
-        # 打印时隐藏向量，仅输出维度
+    # 打印时隐藏向量，仅输出维度
     display_result = dict(result)
     if query_vector is not None:
         display_result["query_vector"] = f"dim={len(query_vector)}"

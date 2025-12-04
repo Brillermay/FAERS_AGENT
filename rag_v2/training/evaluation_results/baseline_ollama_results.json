@@ -1,0 +1,1015 @@
+{
+  "model_name": "Baseline (Ollama nomic-embed-text)",
+  "model_path": "nomic-embed-text",
+  "metrics": {
+    "samples": 596,
+    "Hit@10": 0.006711409395973154,
+    "Recall@10": 0.0006711409395973155,
+    "MRR@10": 0.0022950623202301055
+  },
+  "timestamp": "2025-12-03T11:32:03.733744",
+  "total_samples": 596,
+  "elapsed_seconds": 459.90706515312195,
+  "details": [
+    {
+      "question": "阿贝马替克可能会引起哪些常见的不良反应？",
+      "drugname": "ABEMACICLIB",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5265320594689843
+    },
+    {
+      "question": "使用阿贝马替克治疗过程中患者常报告有哪些不适症状？",
+      "drugname": "ABEMACICLIB",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "incorrect route of product administration",
+      "top1_sim": 0.5333007592930328
+    },
+    {
+      "question": "阿贝马替克在临床应用中患者最常见的是哪些副作用？",
+      "drugname": "ABEMACICLIB",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5545680871262707
+    },
+    {
+      "question": "使用阿立哌唑治疗时，医生通常会关注哪些不良反应？",
+      "drugname": "ABILIFY",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "loose body in joint",
+      "top1_sim": 0.5234228726880817
+    },
+    {
+      "question": "患者服用阿立哌唑后，最常见的不适有哪些？",
+      "drugname": "ABILIFY",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "amyotrophic lateral sclerosis",
+      "top1_sim": 0.5218525827521288
+    },
+    {
+      "question": "阿立哌唑可能导致的常见副作用有哪些？",
+      "drugname": "ABILIFY",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "amyotrophic lateral sclerosis",
+      "top1_sim": 0.5315707864956163
+    },
+    {
+      "question": "阿布利卡达治疗期间患者常见出现哪些不适？",
+      "drugname": "ABRILADA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.555831355303551
+    },
+    {
+      "question": "使用阿布利卡达的病人可能会遇到哪些常见的副作用？",
+      "drugname": "ABRILADA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "disturbance in social behaviour",
+      "top1_sim": 0.5374201394853423
+    },
+    {
+      "question": "接受阿布利卡达治疗的患者常报告有哪些不良反应？",
+      "drugname": "ABRILADA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "aberrant aortic arch",
+      "top1_sim": 0.5155642490529594
+    },
+    {
+      "question": "对乙酰氨基酚是否容易引起不良反应？",
+      "drugname": "ACETAMINOPHEN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "illogical thinking",
+      "top1_sim": 0.5019413913257771
+    },
+    {
+      "question": "使用对乙酰氨基酚会不会有一些常见的副作用？",
+      "drugname": "ACETAMINOPHEN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "incoherent",
+      "top1_sim": 0.47738973677682656
+    },
+    {
+      "question": "服用对乙酰氨基酚后可能会出现哪些不良反应？",
+      "drugname": "ACETAMINOPHEN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "loose body in joint",
+      "top1_sim": 0.49658918520067563
+    },
+    {
+      "question": "对乙酰氨基酚和可待因磷酸盐合用时，患者常会出现哪些不适症状？",
+      "drugname": "ACETAMINOPHEN\\CODEINE PHOSPHATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "loose body in joint",
+      "top1_sim": 0.5053915764093724
+    },
+    {
+      "question": "使用对乙酰氨基酚和可待因磷酸盐后，医生通常需要关注哪些常见的副作用？",
+      "drugname": "ACETAMINOPHEN\\CODEINE PHOSPHATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "escherichia urinary tract infection",
+      "top1_sim": 0.5210525984362911
+    },
+    {
+      "question": "患者服用对乙酰氨基酚和可待因磷酸盐之后，可能会出现哪些常见反应？",
+      "drugname": "ACETAMINOPHEN\\CODEINE PHOSPHATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "impatience",
+      "top1_sim": 0.4957887631459265
+    },
+    {
+      "question": "阿司匹林和羟考酮联合使用可能会引起哪些不良反应？",
+      "drugname": "ACETAMINOPHEN\\HYDROCODONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "ligament disorder",
+      "top1_sim": 0.5186665982700943
+    },
+    {
+      "question": "含对乙酰氨基酚和氢可酮的药物患者可能会出现哪些不适？",
+      "drugname": "ACETAMINOPHEN\\HYDROCODONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "loose body in joint",
+      "top1_sim": 0.4786990806948583
+    },
+    {
+      "question": "服用泰诺和可待因复方制剂的病人通常会出现什么样的副作用？",
+      "drugname": "ACETAMINOPHEN\\HYDROCODONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "disturbance in social behaviour",
+      "top1_sim": 0.5131314172596819
+    },
+    {
+      "question": "acyclovir治疗期间可能会出现一些不良反应吗？",
+      "drugname": "ACYCLOVIR",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "vancomycin infusion reaction",
+      "top1_sim": 0.5827413572433398
+    },
+    {
+      "question": "服用acyclovir后患者常会遇到哪些不适？",
+      "drugname": "ACYCLOVIR",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "viral infection",
+      "top1_sim": 0.5637456165788965
+    },
+    {
+      "question": "在使用acyclovir的过程中，医生通常需要关注哪些常见的副作用？",
+      "drugname": "ACYCLOVIR",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "vancomycin infusion reaction",
+      "top1_sim": 0.5553043490090722
+    },
+    {
+      "question": "adalimumab治疗期间患者常会出现哪些不适？",
+      "drugname": "ADALIMUMAB",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adverse drug reaction",
+      "top1_sim": 0.605123407224976
+    },
+    {
+      "question": "使用adalimumab后，医生通常会关注哪些常见的副作用？",
+      "drugname": "ADALIMUMAB",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5620074905102808
+    },
+    {
+      "question": "在使用adalimumab的过程中，有哪些不良反应是比较常见的？",
+      "drugname": "ADALIMUMAB",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adverse drug reaction",
+      "top1_sim": 0.5600811218293962
+    },
+    {
+      "question": "ADCIRCA治疗期间可能会出现哪些常见的副作用？",
+      "drugname": "ADCIRCA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5561799493124352
+    },
+    {
+      "question": "使用ADCIRCA后患者常报告有哪些不良反应？",
+      "drugname": "ADCIRCA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5352390229516076
+    },
+    {
+      "question": "医生，服用ADCIRCA的过程中，有没有什么常见反应需要注意的？",
+      "drugname": "ADCIRCA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5418684701412332
+    },
+    {
+      "question": "服用ADDERALL后患者常会出现哪些不适？",
+      "drugname": "ADDERALL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adverse drug reaction",
+      "top1_sim": 0.5701066461641016
+    },
+    {
+      "question": "使用ADDERALL治疗时，医生通常会留意哪些副作用？",
+      "drugname": "ADDERALL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug-disease interaction",
+      "top1_sim": 0.5758792135118601
+    },
+    {
+      "question": "开ADDERALL之后，患者最常见的不良反应有哪些？",
+      "drugname": "ADDERALL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adverse drug reaction",
+      "top1_sim": 0.5480391805970908
+    },
+    {
+      "question": "ADEMPAS治疗期间可能出现哪些常见副作用？",
+      "drugname": "ADEMPAS",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5631330182722567
+    },
+    {
+      "question": "使用ADEMPAS时医生通常会怎样处理患者报告的常见不良反应？",
+      "drugname": "ADEMPAS",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5560945604178475
+    },
+    {
+      "question": "在使用ADEMPAS的过程中，患者最常抱怨的是什么不良反应？",
+      "drugname": "ADEMPAS",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adnexa uteri mass",
+      "top1_sim": 0.5419456654897564
+    },
+    {
+      "question": "使用ADVAIR HFA治疗时，医生通常会关注哪些常见的不适症状？",
+      "drugname": "ADVAIR HFA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "product adhesion issue",
+      "top1_sim": 0.5586668450273952
+    },
+    {
+      "question": "患者在使用ADVAIR HFA过程中，经常会遇到哪些副作用？",
+      "drugname": "ADVAIR HFA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "haemorrhagic arteriovenous malformation",
+      "top1_sim": 0.5747116694578417
+    },
+    {
+      "question": "ADVAIR HFA是否有可能引起一些非预期的反应？",
+      "drugname": "ADVAIR HFA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "haemorrhagic arteriovenous malformation",
+      "top1_sim": 0.5487985354166731
+    },
+    {
+      "question": "ADVATE治疗过程中可能会出现哪些常见的不适反应？",
+      "drugname": "ADVATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5536992884850901
+    },
+    {
+      "question": "在使用ADVATE的过程中，医生通常会关注患者是否有哪些常见副作用？",
+      "drugname": "ADVATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.553810445217188
+    },
+    {
+      "question": "患者在使用ADVATE期间，临床医生最常询问的不良反应有哪些？",
+      "drugname": "ADVATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "adhesion",
+      "top1_sim": 0.5480366416031878
+    },
+    {
+      "question": "advil使用后患者常见的不适有哪些？",
+      "drugname": "ADVIL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5579338004186388
+    },
+    {
+      "question": "使用advil之后可能会出现哪些不良反应？",
+      "drugname": "ADVIL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "inadequate analgesia",
+      "top1_sim": 0.5471338424405902
+    },
+    {
+      "question": "有没有人用advil之后出现了其他意想不到的副作用？",
+      "drugname": "ADVIL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5587687466654284
+    },
+    {
+      "question": "使用盐酸沙丁胺醇后，患者可能会出现哪些不适？",
+      "drugname": "ALBUTEROL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "device malfunction",
+      "top1_sim": 0.5067074860453122
+    },
+    {
+      "question": "接受盐酸沙丁胺醇治疗的病人中，最常见的副作用有哪些？",
+      "drugname": "ALBUTEROL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5398844503405068
+    },
+    {
+      "question": "长期服用盐酸沙丁胺醇是否会引起不良反应？如果会的话，主要是什么样的症状？",
+      "drugname": "ALBUTEROL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "loose body in joint",
+      "top1_sim": 0.48014831313279355
+    },
+    {
+      "question": "使用盐酸氨溴索时，患者可能会出现哪些常见的不适症状？",
+      "drugname": "ALBUTEROL SULFATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "device malfunction",
+      "top1_sim": 0.504060974201136
+    },
+    {
+      "question": "服用沙丁胺醇后，医生通常会关注病人有哪些潜在的不良反应？",
+      "drugname": "ALBUTEROL SULFATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "disturbance in social behaviour",
+      "top1_sim": 0.5206424167107374
+    },
+    {
+      "question": "给患者开具了特布他林，请问这种药物可能引起哪些常见副作用？",
+      "drugname": "ALBUTEROL SULFATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "dysmyelination",
+      "top1_sim": 0.538409094724858
+    },
+    {
+      "question": "使用沙丁胺醇和异丙托溴铵后，患者可能会出现哪些常见不适？",
+      "drugname": "ALBUTEROL\\IPRATROPIUM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "device malfunction",
+      "top1_sim": 0.4966936967594342
+    },
+    {
+      "question": "沙丁胺醇和异丙托溴铵联合用药后，医生需要警惕哪些常见的副作用？",
+      "drugname": "ALBUTEROL\\IPRATROPIUM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "sacroiliac fusion",
+      "top1_sim": 0.5367063108799991
+    },
+    {
+      "question": "给患者开具了沙丁胺醇和异丙托溴铵的处方，家属询问可能出现哪些常见反应？",
+      "drugname": "ALBUTEROL\\IPRATROPIUM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "hand-foot-and-mouth disease",
+      "top1_sim": 0.49156062598634936
+    },
+    {
+      "question": "服用阿乐后患者通常会出现哪些不适？",
+      "drugname": "ALDACTONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5383569287984884
+    },
+    {
+      "question": "使用阿乐治疗时医生最常听到的副作用有哪些？",
+      "drugname": "ALDACTONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "akathisia",
+      "top1_sim": 0.5205762104849965
+    },
+    {
+      "question": "患者在服用阿乐期间容易遇到什么不良反应？",
+      "drugname": "ALDACTONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5361648359407948
+    },
+    {
+      "question": "阿仑膦酸钠治疗期间，患者可能会出现一些不适吗？",
+      "drugname": "ALENDRONATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5420371508578252
+    },
+    {
+      "question": "使用阿仑膦酸钠过程中，医生通常会留意哪些副作用？",
+      "drugname": "ALENDRONATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5318342463303083
+    },
+    {
+      "question": "在服用阿仑膦酸钠时，患者需要特别注意哪些潜在的不良反应？",
+      "drugname": "ALENDRONATE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "aberrant aortic arch",
+      "top1_sim": 0.5258359033165789
+    },
+    {
+      "question": "阿仑膦酸钠治疗期间患者可能出现哪些不适症状？",
+      "drugname": "ALENDRONATE SODIUM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5527435422803677
+    },
+    {
+      "question": "使用阿仑膦酸钠过程中医生需要特别关注哪些不良反应？",
+      "drugname": "ALENDRONATE SODIUM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "aberrant aortic arch",
+      "top1_sim": 0.5332612490933075
+    },
+    {
+      "question": "服用阿仑膦酸钠后患者容易出现哪些副作用？",
+      "drugname": "ALENDRONATE SODIUM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5528011453866801
+    },
+    {
+      "question": "Aleve 使用后可能会出现哪些常见不适？",
+      "drugname": "ALEVE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "balanoposthitis",
+      "top1_sim": 0.5274534376030113
+    },
+    {
+      "question": "Aleve 是否会引起一些普遍的副作用？",
+      "drugname": "ALEVE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "melaena",
+      "top1_sim": 0.5339022852797248
+    },
+    {
+      "question": "在使用 Aleve 的过程中，医生通常会留意哪些常见的不良反应？",
+      "drugname": "ALEVE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "aberrant aortic arch",
+      "top1_sim": 0.5230932360033906
+    },
+    {
+      "question": "服用阿尔法骨化醇后患者常会出现哪些不适？",
+      "drugname": "ALFACALCIDOL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5473219414634535
+    },
+    {
+      "question": "使用阿尔法骨化醇治疗的病人可能会遇到哪些主要副作用？",
+      "drugname": "ALFACALCIDOL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "disturbance in social behaviour",
+      "top1_sim": 0.5570503881590779
+    },
+    {
+      "question": "接受阿尔法骨化醇治疗的患者常见有哪些不良反应？",
+      "drugname": "ALFACALCIDOL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "circumstance or information capable of leading to medication error",
+      "top1_sim": 0.5278952524900629
+    },
+    {
+      "question": "ALIMTA治疗过程中患者可能会遇到哪些常见的不适？",
+      "drugname": "ALIMTA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "device malfunction",
+      "top1_sim": 0.5368750039986504
+    },
+    {
+      "question": "接受ALIMTA治疗的患者通常会出现哪些不良反应？",
+      "drugname": "ALIMTA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "product use in unapproved therapeutic environment",
+      "top1_sim": 0.5262535217873937
+    },
+    {
+      "question": "使用ALIMTA进行治疗时，医生最常关注的是哪些副作用？",
+      "drugname": "ALIMTA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5506514385145101
+    },
+    {
+      "question": "Allegra 使用后患者常会出现哪些不适？",
+      "drugname": "ALLEGRA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "alopecia areata",
+      "top1_sim": 0.517223806699675
+    },
+    {
+      "question": "Allegra 常见的副作用有哪些症状？",
+      "drugname": "ALLEGRA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "miliaria",
+      "top1_sim": 0.526337073417527
+    },
+    {
+      "question": "在使用 Allegra 的过程中，医生通常会注意观察哪些不良反应？",
+      "drugname": "ALLEGRA",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "allogenic stem cell transplantation",
+      "top1_sim": 0.5412775639943946
+    },
+    {
+      "question": "Allegra Allergy 是否有可能引起一些不良反应？",
+      "drugname": "ALLEGRA ALLERGY",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "allergy to animal",
+      "top1_sim": 0.6547597258203984
+    },
+    {
+      "question": "Allegra Allergy 使用后患者可能会遇到哪些不适？",
+      "drugname": "ALLEGRA ALLERGY",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "allergy to animal",
+      "top1_sim": 0.6703384308409884
+    },
+    {
+      "question": "在使用 Allegra Allergy 之后，有没有什么常见的副作用需要警惕？",
+      "drugname": "ALLEGRA ALLERGY",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "allergy to animal",
+      "top1_sim": 0.6379407006075931
+    },
+    {
+      "question": "使用阿洛purin醇治疗过程中需要注意哪些常见的身体不适？",
+      "drugname": "ALLOPURINOL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "pustule",
+      "top1_sim": 0.5898522252463901
+    },
+    {
+      "question": "患者服用阿洛purin醇后可能会出现什么比较常见的问题？",
+      "drugname": "ALLOPURINOL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "pustule",
+      "top1_sim": 0.5858123560912599
+    },
+    {
+      "question": "阿洛purin醇治疗期间医生通常会关注病人可能出现的哪些不良反应？",
+      "drugname": "ALLOPURINOL",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "pustule",
+      "top1_sim": 0.569251874534193
+    },
+    {
+      "question": "阿尔普拉唑胺治疗期间患者可能会出现哪些不适症状？",
+      "drugname": "ALPRAZOLAM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5474333301863465
+    },
+    {
+      "question": "服用阿尔普拉唑胺后病人常见有哪些不良反应？",
+      "drugname": "ALPRAZOLAM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "disturbance in social behaviour",
+      "top1_sim": 0.5158252272066034
+    },
+    {
+      "question": "使用阿尔普唑胺时医生通常会关注病人哪些副作用？",
+      "drugname": "ALPRAZOLAM",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "disturbance in social behaviour",
+      "top1_sim": 0.5459672001655833
+    },
+    {
+      "question": "阿替普酶治疗后患者常见的不适有哪些？",
+      "drugname": "ALTEPLASE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5183211000586747
+    },
+    {
+      "question": "使用阿替普酶之后可能会出现哪些不良反应？",
+      "drugname": "ALTEPLASE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5156459475038606
+    },
+    {
+      "question": "接受阿替普酶治疗的患者常会出现哪些副作用？",
+      "drugname": "ALTEPLASE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5249135710015421
+    },
+    {
+      "question": "Ambien使用后患者最常见的不适是什么？",
+      "drugname": "AMBIEN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "amnestic disorder",
+      "top1_sim": 0.5624508561270306
+    },
+    {
+      "question": "服用Ambien的病人可能会遇到哪些主要副作用？",
+      "drugname": "AMBIEN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5445882714847878
+    },
+    {
+      "question": "医生，Ambien治疗期间常见的不良反应有哪些？",
+      "drugname": "AMBIEN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "amnestic disorder",
+      "top1_sim": 0.5841199971683053
+    },
+    {
+      "question": "AMBRISENTAN治疗期间可能会出现哪些常见的副作用？",
+      "drugname": "AMBRISENTAN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "inadequate lubrication",
+      "top1_sim": 0.5831577192590339
+    },
+    {
+      "question": "使用AMBRISENTAN时，医生通常会留意哪些常见不良反应？",
+      "drugname": "AMBRISENTAN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.564670076538795
+    },
+    {
+      "question": "接受AMBRISENTAN治疗的患者中，最常见的不适有哪些？",
+      "drugname": "AMBRISENTAN",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "drug dispensed to wrong patient",
+      "top1_sim": 0.5539155697217786
+    },
+    {
+      "question": "阿米达隆这种药常见的副作用有哪些？",
+      "drugname": "AMIODARONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5162346970783216
+    },
+    {
+      "question": "服用阿米达隆后患者可能会遇到哪些不良反应？",
+      "drugname": "AMIODARONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5234656568418857
+    },
+    {
+      "question": "临床上使用阿米达隆时，医生通常需要注意哪些常见不良反应？",
+      "drugname": "AMIODARONE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "aberrant aortic arch",
+      "top1_sim": 0.5198377514946186
+    },
+    {
+      "question": "阿米替林这种药常见的副作用有哪些？",
+      "drugname": "AMITRIPTYLINE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.4989709484198472
+    },
+    {
+      "question": "服用阿米替林可能会出现哪些不良反应？",
+      "drugname": "AMITRIPTYLINE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5118761849475734
+    },
+    {
+      "question": "患者使用阿米替林时，需要特别注意哪些常见反应？",
+      "drugname": "AMITRIPTYLINE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "anal incontinence",
+      "top1_sim": 0.5424102306936577
+    },
+    {
+      "question": "氨 triptyline 碘酸盐片可能会出现哪些常见的副作用？",
+      "drugname": "AMITRIPTYLINE HYDROCHLORIDE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "tangentiality",
+      "top1_sim": 0.5327107376708131
+    },
+    {
+      "question": "服用氨 triptyline 碘酸盐过程中需要注意哪些不良反应？",
+      "drugname": "AMITRIPTYLINE HYDROCHLORIDE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "tangentiality",
+      "top1_sim": 0.5324052818610038
+    },
+    {
+      "question": "使用氨 triptyline 碘酸盐治疗时，患者常常会遇到哪些不适？",
+      "drugname": "AMITRIPTYLINE HYDROCHLORIDE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "coordination abnormal",
+      "top1_sim": 0.5550828928656443
+    },
+    {
+      "question": "服用氨氯地平后患者常会出现哪些不适症状？",
+      "drugname": "AMLODIPINE",
+      "gold_count": 10,
+      "hit": 0.0,
+      "recall": 0.0,
+      "mrr": 0.0,
+      "top1_pred": "fall",
+      "top1_sim": 0.5198853205164439
+    }
+  ]
+}

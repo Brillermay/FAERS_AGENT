@@ -6,7 +6,7 @@ from typing import Dict, List, Any
 from py2neo import Graph
 from py2neo.errors import ClientError
 
-from rag_v2.input_layer import parse_input  # 便于单独调试，可直接复用第 1 层
+from rag_v2.core.input_layer import parse_input  # 便于单独调试，可直接复用第 1 层
 
 # ---------- Neo4j 连接 ----------
 graph = Graph("bolt://localhost:7687", auth=("neo4j", "rainshineking274"))

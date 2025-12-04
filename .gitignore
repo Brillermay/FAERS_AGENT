@@ -1,0 +1,13 @@
+# 虚拟环境
+.venv/
+
+# IDE 配置
+.idea/
+
+# Python 编译产物
+__pycache__/
+*.pyc
+
+# 本地训练得到的模型（不要推到 GitHub）
+rag_v2/models/
+rag_v2/training/checkpoints/
